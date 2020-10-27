@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+				<!-- 以指定级别的浏览器渲染内容 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+			
+		<!-- 移动端的视口与我们的页面是同一个尺寸 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">	
+		<link href="css/bootstrap.min.css" rel="stylesheet"> 
+		<link href="mycss/index.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/findscss.css" />
+		<title>发现</title>
+	</head>
+	<body>
+		<p>
+			发现
+		</p>
+		<!-- 轮播图 -->
+		<div class="scroll_mid">
+        	<img src="img/pic_1.jpg" id="pic">
+        	<ul  class="scroll_number" id="scroll_number">
+            	<li onMouseOver="show(1)" onMouseOut="start()"></li>
+                <li onMouseOver="show(2)" onMouseOut="start()"></li>
+            	<li onMouseOver="show(3)" onMouseOut="start()"></li>
+                <li onMouseOver="show(4)" onMouseOut="start()"></li>
+                <li onMouseOver="show(5)" onMouseOut="start()"></li>
+           </ul>
+		</div>
+		
+		<!-- 歌单 -->
+		<div class="order">
+		  <span hidden="hidden" id="count">0</span>        <!--  隐藏域      统计音乐总数    -->
+		   <p>歌单</p>
+		   <ul id="musicname">
+		   	  <!-- 
+		   	  <li onmousemove="show2(4)" onmouseout="show3(4)">
+		   	  	<span><img src="img/pic_2.jpg"></span>
+		   	  	<span>徐良、潘卉琦 - 乳臭未干</span>
+		   	  	<span class="listen"><span class="glyphicon glyphicon-headphones" onclick="play2(4)"></span></span>
+		   	  	<span class="like"><span class="glyphicon glyphicon-heart" onclick="addlike(4,0)"></span></span>
+		   	  </li>
+		   	   -->
+		   </ul>
+		   <div id="mns"></div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js" ></script>
+	<script type="text/javascript" src="js/musicPlay.js" ></script>
+	<script type="text/javascript" src="js/texiao.js" ></script>  <!-- texiao.js可以不用管 -->
+	<script>
+    	//显示”听歌/我喜欢“方法
+    	function show2(id){
+    		$("#musicname li span").eq(2+6*(id-1)).css("display","inline");
+    		$("#musicname li span").eq(4+6*(id-1)).css("display","inline");
+    	}
+    	//隐藏”听歌/我喜欢“方法
+    	function show3(id){
+    		$("#musicname li span").eq(2+6*(id-1)).css("display","none");
+    		$("#musicname li span").eq(4+6*(id-1)).css("display","none");
+    	}
+    	
+    	//添加我喜欢   id:序列（表示第几个addlike函数）   status  ： 状态   0  未添加   /  1  已添加
+    	//这个可以做渲染，这个status做一个0/1的判断
+    	function addlike(id,status){
+    		if(status == 0){
+    			$("#musicname li span").eq(5+6*(id-1)).css("color","red");
+    			status = 1;
+    		}else if(status == 1){
+    			$("#musicname li span").eq(5+6*(id-1)).css("color","cornflowerblue");
+    			status = 0;
+    		}
+    	}
+	</script>
+	<script>
+	  //首次访问需要显示的数据
+	  $(function (){
+		  
+		  $.post("MusicServlet",{op:"finds"}, data =>{
+			  
+			  showMusic(data);
+			  MusicName(data);
+			 
+		  },"json")
+		 
+	  })
+	     
+	function showMusic(obj){
+		  var str = '';
+		  var pics= []; //图片数组
+		  
+		  $.each(obj,function(index,item){
+			  str += '<li onmousemove="show2('+ item.mid +')" onmouseout="show3('+ item.mid +')">'+
+			         '<span id="mp"><img src="'+ item.mphoto +'"></span>'+
+			         '<span id="mn">'+ item.musicname +'</span>'+
+			         '<span class="listen">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-headphones" onclick="play2('+ item.mid +')"></span></span>'+
+			         '<span class="like">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart" onclick="addlike('+ item.mid +',0)"></span></span></li>'; 
+		  })
+		  $("#musicname").html("").append($(str));
+	  }
+	
+	</script>
+</html>

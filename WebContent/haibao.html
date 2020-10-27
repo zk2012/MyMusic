@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		/* 旋转 */
+		    @keyframes rotate{
+	        0%{
+		        transform: rotateZ(0deg);/*从0度开始*/
+	        }
+	        100%{
+		        transform: rotateZ(360deg);/*360度结束*/
+	        }
+            }
+#music {
+	width: 1530px;
+	height: 680px;
+	border-radius: 10px;
+	/*margin: 20px auto;*/
+	position: relative;
+	background: url(img/pic_5.jpg) no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+#container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 1530px;
+	height: 680px;
+	text-align: center;
+	background:rgba(255,255,255,0.6);
+}
+img{
+	float: left;
+	width: 300px;
+	height: 300px;
+	margin-top: 150px;
+	margin-left: 500px;
+	border-radius: 150px;
+	animation: rotate 10s linear infinite;
+}
+
+	</style>
+	<body>
+		<div id="music">
+			<div id="container">
+				<img src="img/pic_5.jpg">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js" ></script>
+   <script type="text/javascript" src="js/musicPlay.js" ></script>
+   <script>
+   	
+   	var img = parent.window.$(".f_l img").eq(0).attr("src");
+    	var times=window.setInterval('show()',10);
+    	//定时器中show没有数、参数      而鼠标移入时有参数
+    	function show(){
+    		$("#container img").eq(0).removeAttr("src","img/pic_1.jpg");
+			$("#container img").eq(0).attr("src",img);
+			
+			var bgimg=$("#container img").eq(0).attr("src");
+			$("#music").eq(0).css("background","url("+ bgimg +") no-repeat");
+			$("#music").eq(0).css("background-size","cover");
+    	};
+    	//开始轮播   开启定时器
+    	function  start(){
+    		times=setInterval(show,10);
+    	}
+   </script>
+</html>

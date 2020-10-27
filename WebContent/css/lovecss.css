@@ -1,0 +1,74 @@
+ul li{
+				list-style-type: none;
+			}
+			a{
+			     text-decoration: none; /* 清除下划线  */
+			}
+			a:hover{
+				text-decoration:underline;
+			}
+		   .head{
+		   	float:left;
+		   	width:100%;
+		   	height:500px;
+		   }
+		   .head .img1{
+		   	   float: left;
+		   	   width: 200px;
+		   	   height: 200px;
+		   	   margin-left: 100px;
+		   	   margin-top: 60px;
+		   	   border-radius: 20px;
+		   }
+		   .head .img2{
+		   	float: left;
+			height: 35px;
+			width: 35px;
+			margin-left: -250px;
+			margin-top: 180px;
+			background-repeat:no-repeat;
+			border-radius: 20px;
+		   }
+		   .head .love{
+		   	float: left;
+		   	margin-left: 50px;
+		   	margin-top: 50px;
+		    font-size: 50px;
+		    font-weight: bold;
+		   }
+		   .head .count{
+		   	  float: left;
+		   	  margin-top: 90px;
+		   	  margin-left: 30px;
+		   }
+		   .head .name{
+		   	    float: left;
+		   	    margin-top: 200px;
+		   	    margin-left: -200px;
+		   }
+		   .body1{
+		   	  float: left;
+		   	  width: 100%;
+		   	  height: 800px;
+		   	  margin-top: -200px;
+		   }
+		   .play{
+		   	float: right;
+		   	  display: none;
+		   	  margin-right: 100px;
+		   	  color: red;
+		   }
+		   .save{
+		   	float: right;
+		   	display: none;
+		   	margin-right: 10px;
+		   	color: red;
+		   }
+		   .backgrounds:hover{
+		   	    background-color:rgba(48,163,246,0.3);
+		   }
+		   td img{
+		   	width: 35px;
+		   	height: 35px;
+		   	border-radius: 10px;
+		   }

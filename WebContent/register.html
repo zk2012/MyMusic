@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+				<!-- 以指定级别的浏览器渲染内容 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+			
+		<!-- 移动端的视口与我们的页面是同一个尺寸 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">	
+		<link href="css/bootstrap.min.css" rel="stylesheet">  
+		<link rel="stylesheet" href="css/lovecss.css" />
+		<link rel="stylesheet" href="css/registercss.css" />
+		<title>登录</title>
+	</head>
+	<style>
+		.bbb{
+			float: left;
+			width: 35%;
+			height: 650px;
+			margin-top: 60px;
+			margin-left: 200px;
+			position: relative;
+			background: url(img/timg.jpg) no-repeat;
+			opacity: 0.5;
+			background-size: cover;
+			border-radius: 140px;
+		}
+	</style>
+	<body>
+		
+		<div class="aaa">
+			<div class="bbb"></div>
+			<div class="ccc">
+				<span>用户名：<input class="txt" type="text" id="uname"></span>
+				<span class="password">密&nbsp;&nbsp;码：<input class="txt" type="password" id="upwd">&nbsp;&nbsp;&nbsp;<a class="glyphicon glyphicon-eye-close"></a></span>
+				<span>
+					用户头像：
+					<input type="file" id="uphoto" name="uphoto" onchange="handleFiles(this.files)">
+                    <div id = "preview" class="preview"></div>
+				</span>
+				
+				<a href="javascript:register()"><span class="button1">立即注册</span></a>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js" ></script>
+	<script type="text/javascript" src="js/texiao.js" ></script>
+	<script type="text/javascript" src="js/ajaxfileupload.js" ></script>
+	<script type="text/javascript">
+		
+	
+    //访问本地文件夹
+  function handleFiles(files) {
+  var preview = document.getElementById('preview');
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var imageType = /^image\//;
+
+    if ( !imageType.test(file.type) ) {
+      continue;
+    }
+
+    var img = document.createElement("img");
+    img.classList.add("obj");
+    img.file = file;
+    img.style.width = '100px';
+    img.style.height = '100px';
+    // 假设 "preview" 是将要展示图片的 div
+    preview.appendChild(img);
+
+    var reader = new FileReader();
+    reader.onload = (function(aImg) {
+      return function(e) {
+        aImg.src = e.target.result;
+      };
+    })(img);
+    reader.readAsDataURL(file);
+    
+  }
+}
+    
+</script>
+
+<script type="text/javascript">
+
+    function register(){
+    	var uname=$.trim($("#uname").val());
+    	var upwd=$.trim($("#upwd").val());
+    	var uphoto=$.trim($("#uphoto").val());
+    	
+   // 	alert(uphoto);
+   
+   
+        $.ajaxFileUpload({
+        	url:'UserServlet?op=register',
+        	secureuri: false,
+    		fileElementId:"uphoto",
+    		dataType:"json",
+    		data:{uname:uname,upwd:upwd},
+    		success:function(data, stuts) {
+    			data = parseInt($.trim(data));
+    			if (data == 1) {
+    				alert("用户注册成功...");
+    			} else {
+    				alert("用户注册失败...");
+    			}
+    		},
+    		error:function(data, status, e) {
+    			alert("用户注册失败，请稍后重试...\n" + e);
+    		}
+        });
+        
+    }
+
+</script>
+</html>

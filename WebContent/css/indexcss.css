@@ -1,0 +1,236 @@
+			ul li{
+				list-style-type: none;
+			}
+			a{
+			     text-decoration: none; /* 清除下划线  */
+			}
+			a:hover{
+				text-decoration:underline;
+			}
+			/* 旋转 */
+		    @keyframes rotate{
+	        0%{
+		        transform: rotateZ(0deg);/*从0度开始*/
+	        }
+	        100%{
+		        transform: rotateZ(360deg);/*360度结束*/
+	        }
+            }
+		/* 头部 */
+		header{
+			width: 100%;
+			height: 100px;
+			background-color: rgba(70,167,245,0.5);
+		}
+		.h_l{
+			float:left;
+			width: 60%;
+			height: 100px;
+		}
+		.h_l img{
+			height: 35px;
+			width: 35px;
+			background-repeat:no-repeat;
+			border-radius: 20px;
+		}
+		.h_l ul li{
+			float: left;
+			margin-top: 20px;
+			height: 35px;
+			width: 50px;
+		}
+		.h_l p{
+			float: left;
+			width: 360px;
+			height: 35px;
+			margin-left: 600px;
+			margin-top: -10px;
+		}
+		.h_l input{
+			float: left;
+			height: 30px;
+			width: 200px;
+			margin-top: 10px;
+			border-radius: 10px;
+			color: #87CEEB;
+		}
+		.h_l span{
+			float: left;
+			margin-top: -25px;
+			margin-left: 230px;
+		}
+		.h_l button{
+			float: left;
+			width: 60px;
+			height: 30px;
+			margin-top: -5px;
+			margin-left: -10px;
+			font-size: 10px;
+			line-height: 3px;
+		}
+		.h_l button:hover{
+			background-color: #0078D7;
+		}
+		.h_r{
+			float: left;
+			width: 40%;
+			height: 100px;
+		}
+		.h_r ul{
+			float: left;
+			margin-top: 40px;
+			margin-left: 400px;
+		}
+		.h_r ul li{
+			float: left;
+			margin-top: 30px;
+			margin-left: 10px;
+			height: 30px;
+			width: 60px;
+			
+		}
+		.h_r a{
+			color: #F3D882;
+		}
+		
+		/* 导航栏  */
+		nav{
+			float: left;
+			width: 20%;
+			height: 700px;
+		}
+		nav ul li{
+			float: left;
+			width: 200px;
+			height: 50px;
+			font-size: 35px;
+			font-family: "微软雅黑";
+			margin-top: 80px;
+			margin-left: 100px;
+		}
+		article{
+			float: left;
+			width: 80%;
+			height: 700px;
+			background-color: rgba(129,188,234,0.2);
+		}
+		
+		/* 脚部 */
+		footer{
+			float: left;
+			width: 100%;
+			height: 120px;
+
+		}
+		.f_l{
+			float: left;
+			width: 25%;
+			height: 60px;
+			margin-top: 30px;
+		}
+		.f_l #doplay{
+			float: left;
+			width: 250px;
+			height: 20px;
+			margin-left: 50px;
+		}
+		.f_l img{
+			float: left;
+			height: 60px;
+			width: 60px;
+			margin-left: 50px;
+			background-repeat:no-repeat;
+			border-radius: 35px;
+			animation: rotate 10s linear infinite;
+		}
+		.f_l ul{
+			float: left;
+			width: 180px;
+			height: 70px;
+			margin-left:50px;
+		}
+		.f_l ul li{
+			float: left;
+			width: 30px;
+			height: 70px;
+			font-size: 30px;
+			margin-left: 10px;
+		}
+		.lrc{
+			width: 300px;
+			height: 100px;
+			margin-top: 20px;
+			line-height: -10px;
+			float: left;
+			text-align: center;
+			background-color: yellow;
+		}
+		.lrc p{
+	line-height:20px;
+	font-size:12px;
+}
+		.music_program{
+			float: left;
+			width: 100%;
+			height: 6px;
+			position: relative;
+			background-color: #0078D7;
+		}
+		
+		/*一、下拉菜单ol折叠*/
+       .order{
+       	   width: 200px;
+       	   height: 30px;
+       	   float: left;
+       	   margin-left: -170px;
+       	   margin-top: 100px;
+       }
+       .order *{margin: 0;padding: 0px}
+       .order ul{
+            width: 200px;
+            height: 30px;
+            
+            /*outline: 1px solid black;*/
+        }
+        .order span{
+        	color: white;
+        }
+       .order ul li{
+            width: 50%;
+            height: 100%;
+            /*outline: 1px solid black;*/
+            text-align: center;
+            float: left;
+            line-height: 30px;
+            list-style: none;
+            border-radius: 10px;
+            background: rgba(118,175,237,0.9);
+        }
+       .order ul ol{
+            width: 100%;
+            height: 0;
+            transition: all linear 0.5s;
+            overflow: hidden;
+            background-color: rgba(118,175,237,0.9);
+             border-radius: 10px;
+            /*outline: 1px solid black;*/
+        }
+       .order ul ol li{
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            /*background: pink;*/
+            /*outline: 1px solid black;*/
+        }
+       .order ul ol li a{
+            color: black;
+            text-decoration: none;
+        }
+       .order ul li:hover ol{
+            height: 90px;
+            margin-top: -120px;
+            transition: all linear 1s;
+        }
+       .order ul ol li:hover{
+            background: #64B9F7;
+        }

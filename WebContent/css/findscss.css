@@ -1,0 +1,73 @@
+ul li{
+				list-style-type: none;
+			}
+			a{
+			     text-decoration: none; /* 清除下划线  */
+			}
+			a:hover{
+				text-decoration:underline;
+			}
+		p{
+		   float: left;
+		   margin-top: 30px;
+		   font-size: 50px;
+		   font-weight: bold;
+		}
+		.scroll_mid{
+			float: left;
+			width: 80%;
+			height: 300px;
+			margin-top: 100px;
+			margin-left: 100px;
+		}
+		.scroll_mid img{
+			width: 800px;
+			height: 300px;
+			border-radius: 20px;
+		}
+		.scroll_number{
+		   float: left;
+	       width: 200px;
+	       height: 20px;
+	       margin-left: 100px;
+	    }
+	    
+	    
+	    /* 歌单 */
+	   .order{
+	   	float: left;
+	   	width: 100%;
+	   	height: 500px;
+	   }
+	   .order ul{
+	   	  float: left;
+	   	  width: 1000px;
+	   	  height: 500px;
+	   	  margin-top: 100px;
+	   	  margin-left: 200px;
+	   }
+	   .order ul li{
+	   	    float: left;
+	   	    width: 300px;
+	   	    height: 50px;
+	   	    margin-top: 20px;
+	   	    margin-left: 10px;
+	   }
+	   .order img{
+	   	   width: 50px;
+	   	   height: 50px;
+	   	   border-radius: 10px;
+	   }
+	   
+	   .like,.listen{
+	   	display: none;
+	   	color: cornflowerblue;
+	   }
+	 
+	   .order li:hover{
+	   	    background-color: rgba(220,38,38,0.1);   /*小数为透明度 */
+	   }
+	   .order li:hover~.like{
+	   	 
+	   }
+	  

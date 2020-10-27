@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+				<!-- 以指定级别的浏览器渲染内容 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+			
+		<!-- 移动端的视口与我们的页面是同一个尺寸 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">	
+		<link href="css/bootstrap.min.css" rel="stylesheet">  
+		<link rel="stylesheet" href="css/lovecss.css" />
+		<link rel="stylesheet" href="css/logincss.css" />
+		<title>登录</title>
+	</head>
+	<style>
+		.bbb{      /* 放到css文件里面没效果   */
+			float: left;
+			width: 35%;
+			height: 650px;
+			margin-top: 60px;
+			margin-left: 200px;
+			position: relative;
+			background: url(img/timg.jpg) no-repeat;
+			opacity: 0.5;
+			background-size: cover;
+			border-radius: 140px;
+		}
+	</style>
+	<body>
+		
+		<div class="aaa">
+			<div class="bbb"></div>
+			<div class="ccc">
+				<span>用户名：<input type="text" id="uname"></span>
+				<span class="password">密&nbsp;&nbsp;码：<input type="password" id="upwd">&nbsp;&nbsp;&nbsp;<a class="glyphicon glyphicon-eye-close"></a></span>
+				<a href="javascript:login()"><span class="button1">登&nbsp;&nbsp;&nbsp;录</span></a>
+			</div>
+			<a href="register.html">立即注册</a>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js" ></script>
+	<script type="text/javascript" src="js/texiao.js" ></script>
+	<script type="text/javascript">
+	    
+	   function login(){
+		   var uname=$.trim($("#uname").val());
+		   var upwd=$.trim($("#upwd").val());
+		  
+		   if(uname == ""){
+			   alert("用户名不能为空");
+			   return;
+		   }
+		   if(upwd == ""){
+			   alert("密码不能为空");
+			   return;
+		   }
+		   
+		   $.post("UserServlet",{op:"login",uname:uname,upwd:upwd}, data =>{
+			   
+			   data=parseInt($.trim(data));
+			   
+			   if( data == 200 ){
+				   alert("登录成功！");
+				   location.href = "index.html";
+	    		   return;
+	    		}
+	    		
+	    		alert("账号或者密码错误，请确认后登录。。。");
+	    		$("#upwd").val('');
+	    		$("#uname").val('');
+			   
+		   },'text');
+	   }
+	
+	</script>
+</html>
