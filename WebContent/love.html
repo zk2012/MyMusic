@@ -28,12 +28,7 @@
 		
 		<div class="body1">
 			<table class="table" id="findmusic">
-              <tr>
-				<td align="center"><span class="glyphicon glyphicon-heart"></span></td>
-				<td>歌手海报</td>
-				<td>歌曲名</td>
-				<td>歌手名</td>
-			  </tr>
+              
 			  <!-- 
 			  
 			   <tr class="backgrounds"  onmousemove="show2(1)" onmouseout="show3(1)">
@@ -79,21 +74,29 @@
 	
 	    function FindMusic(){
 	    	
-	    	var uuid=$("#uuid").val();
+	    	var uuid=2;
 	    	
-	    	$post("MusicServlet",{op:"findlove",uuid:uuid}, data =>{
+	    	//console.log(uuid);
+	    	
+	    	$.post("MusicServlet",{op:"findlove",uuid:uuid}, data =>{
 	    		
 	    	  var str = '';
 	   		  var pics= []; //图片数组
 	   		  
+	   		  str += '<tr>'+
+					'<td align="center"><span class="glyphicon glyphicon-heart"></span></td>'+
+					'<td>歌手海报</td>'+
+					'<td>歌曲名</td>'+
+					'<td>歌手名</td></tr>';
+	   		  
 	   		  $.each(data,function(index,item){
-	   			  str += '<tr class="backgrounds"  onmousemove="show2(1)" onmouseout="show3(1)">'+
+	   			  str += '<tr class="backgrounds"  onmousemove="show2('+ index +')" onmouseout="show3('+ index +')">'+
 	   			         '<td align="center"><span class="glyphicon glyphicon-heart"></span></td>'+
-	   			         '<td><img src="'+ item.mphoto +'"></td><td>'+
-	   			         '<span>'+ item.musicname +'</span>'+
-	   			         '<span class="play"><span class="glyphicon glyphicon-play" onclick="play3(1)"></span></span>'+
-	   			         '<span class="save"><a><span class="glyphicon glyphicon-save" onclick="download(1)"></span></a></span>'+
-	   			         '</td><td>'+ item.musicer +'</td>'; 
+	   			         '<td><img src="'+ item.mphoto +'"></td>'+
+	   			         '<td><span>'+ item.musicname +'</span>'+
+	   			         '<span class="play"><span class="glyphicon glyphicon-play" onclick="play3('+ index +')"></span></span>'+
+	   			         '<span class="save"><a><span class="glyphicon glyphicon-save" onclick="download('+ index +')"></span></a></span>'+
+	   			         '</td><td>'+ item.musicer +'</td></tr>'; 
 	   		  })
 	   		  $("#findmusic").html("").append($(str));
 	    		
@@ -103,12 +106,12 @@
 	    }
 		
 		function show2(id){
-			$("td span").eq(3+6*(id-1)).css("display","inline-block");
-			$("td span").eq(5+6*(id-1)).css("display","inline-block");
+			$(".play").eq(id).css("display","inline-block");
+			$(".save").eq(id).css("display","inline-block");
 		}
 		function show3(id){
-			$("td span").eq(3+6*(id-1)).css("display","none");
-			$("td span").eq(5+6*(id-1)).css("display","none");
+			$(".play").eq(id).css("display","none");
+			$(".save").eq(id).css("display","none");
 		}
 	</script>
 </html>
