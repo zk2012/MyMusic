@@ -42,6 +42,27 @@ public class MusicDAO implements BaseDAO<MusicBean>{
 		return db.findMutiple(sb.toString(), params, MusicBean.class);
 		
 	}
+	
+	/**
+	 * 添加到我喜欢表
+	 * @param uid
+	 * @return
+	 */
+	public List<MusicBean> findByTrem(int uid) {
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("select * from love,user,music where love.uid=`user`.uuid and love.mid=music.mid ");
+		List<Object> params =  new ArrayList<Object>(); 
+	
+		sb.append(" and love.uid=?");
+		params.add(uid);
+
+		
+		//数据排序（升序）
+		sb.append(" order by love.id asc");
+		// TODO Auto-generated method stub
+		return db.findMutiple(sb.toString(), params, MusicBean.class);
+	}
 
 	@Override
 	public int update(MusicBean t) {

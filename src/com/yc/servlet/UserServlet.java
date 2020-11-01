@@ -76,8 +76,8 @@ public class UserServlet extends BaseServlet {
 		int result = 0;
 		
 		try {
-			Map<String,String> map = uploadUtil.uploads(pageContext); //得到商品信息
-			//添加商品
+			Map<String,String> map = uploadUtil.uploads(pageContext); 
+			
 			System.out.println(map);
 			
 			result = ubiz.add(map);

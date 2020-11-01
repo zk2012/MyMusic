@@ -27,12 +27,32 @@ public class MusicServlet extends BaseServlet {
 		
 		if(op.equals("finds")) {
 			finds(request,response);
+		}else if(op.equals("findlove")) {
+			findlove(request,response);
 		}
 		
 		
 		
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+	}
+
+
+
+
+	/**
+	 * 显示我喜欢的所有歌曲
+	 * @param request
+	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
+	 */
+	private void findlove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int uuid = Integer.parseInt(request.getParameter("uuid"));
+		
+		this.send(response, mbiz.findByTrem(uuid));
+		
 	}
 
 

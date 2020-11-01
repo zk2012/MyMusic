@@ -1,6 +1,6 @@
 package com.yc.bean;
 
-public class MusicBean {
+public class MusicBean {	
      public int mid;            //音乐ID
      public String musicname;   //音乐名
      public String musicer;     //歌手名

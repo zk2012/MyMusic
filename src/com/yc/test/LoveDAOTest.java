@@ -12,14 +12,26 @@ import com.yc.dao.MusicDAO;
 
 class LoveDAOTest {
 
-	LoveBean lb =new LoveBean();
+	
 	LoveDAO dao = new LoveDAO();
 	
 	@Test
-	void findtest() {
+	void insert() {
+		LoveBean lb = new LoveBean();
 		lb.setUid(25);
+		lb.setMid(1);
 		
-		System.out.println(dao.findByTrem(lb));
+		System.out.println(dao.add(lb));
+
+	}
+	
+	@Test
+	void delete() {
+		LoveBean lb = new LoveBean();
+		
+		lb.setMid(1);
+		
+		System.out.println(dao.delete(lb));
 
 	}
 

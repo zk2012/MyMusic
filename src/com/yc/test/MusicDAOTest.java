@@ -17,5 +17,10 @@ class MusicDAOTest {
 		System.out.println(dao.findByTrem(mb));
 		System.out.println("aa");
 	}
+	
+	@Test
+	void finds() {
+		System.out.println(dao.findByTrem(25));
+	}
 
 }
