@@ -55,8 +55,8 @@
 
     //love页面的播放/暂停   点击事件
 	function play3(id){ 
-		var mn = $(".play").eq(id+1).text();
-		var mp = $("td img").eq(id+1).attr("src");
+		var mn = $(".mn").eq(id).text();
+		var mp = $(".ph img").eq(id).attr("src");
 	//	alert(mp);
 		parent.window.play1(1,mn,mp);
 	}
