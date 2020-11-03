@@ -20,7 +20,7 @@ class MusicDAOTest {
 	
 	@Test
 	void finds() {
-		System.out.println(dao.findByTrem(25));
+		System.out.println(dao.findByTrem1(25));
 	}
 
 }

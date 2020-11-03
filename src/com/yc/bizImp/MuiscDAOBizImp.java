@@ -21,11 +21,11 @@ public class MuiscDAOBizImp implements MusicDAOBiz{
 	}
 
 	@Override
-	public List<MusicBean> findByTrem(int uid) {
+	public List<MusicBean> findByTrem1(int uid) {
 		// TODO Auto-generated method stub
 		
 		if(uid != 0) {
-			return dao.findByTrem(uid);
+			return dao.findByTrem1(uid);
 		}
 		
 		return null;

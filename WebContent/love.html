@@ -72,11 +72,11 @@
 	<script type="text/javascript" src="js/chack1.js" ></script>        <!-- 检查登录 -->
 	<script>
 	
-	    function FindMusic(){
+	    function FindMusic(uuid){
 	    	
-	    	var uuid=2;
+	    //	var uuid=$.trim($("#uuid").val());
 	    	
-	    	//console.log(uuid);
+	    	console.log(uuid);
 	    	
 	    	$.post("MusicServlet",{op:"findlove",uuid:uuid}, data =>{
 	    		
@@ -95,7 +95,7 @@
 	   			         '<td class="ph"><img src="'+ item.mphoto +'"></td>'+
 	   			         '<td><span class="mn">'+ item.musicname +'</span>'+
 	   			         '<span class="play"><span class="glyphicon glyphicon-play" onclick="play3('+ index +')"></span></span>'+
-	   			         '<span class="save"><a><span class="glyphicon glyphicon-save" onclick="download('+ index +')"></span></a></span>'+
+	   			         '<span class="save"><a><span class="glyphicon glyphicon-trash" onclick="download('+ index +')"></span></a></span>'+
 	   			         '</td><td>'+ item.musicer +'</td></tr>'; 
 	   		  })
 	   		  $("#findmusic").html("").append($(str));

@@ -48,7 +48,7 @@ public class MusicDAO implements BaseDAO<MusicBean>{
 	 * @param uid
 	 * @return
 	 */
-	public List<MusicBean> findByTrem(int uid) {
+	public List<MusicBean> findByTrem1(int uid) {
 		
 		StringBuffer sb = new StringBuffer();
 		sb.append("select * from love,user,music where love.uid=`user`.uuid and love.mid=music.mid ");

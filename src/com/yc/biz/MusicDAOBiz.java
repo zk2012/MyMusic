@@ -12,5 +12,5 @@ public interface MusicDAOBiz {
 	 */
 	public List<MusicBean> findByTrem(MusicBean t);
 	
-	public List<MusicBean> findByTrem(int uid);
+	public List<MusicBean> findByTrem1(int uid);
 }

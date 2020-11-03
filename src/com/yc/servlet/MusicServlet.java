@@ -51,7 +51,7 @@ public class MusicServlet extends BaseServlet {
 		
 		int uuid = Integer.parseInt(request.getParameter("uuid"));
 		
-		this.send(response, mbiz.findByTrem(uuid));
+		this.send(response, mbiz.findByTrem1(uuid));
 		
 	}
 
