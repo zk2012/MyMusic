@@ -29,12 +29,36 @@ public class LoveServlet extends BaseServlet {
 		
 		if(op.equals("add")) {
 			add(request,response);
+		}else if(op.equals("del")){
+			del(request,response);
 		}
 		
 		
 	}
 
 	
+	/**
+	 * 移除我喜欢
+	 * @param request
+	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
+	 */
+	private void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		LoveBean lb =new LoveBean();
+		
+		int mid = Integer.parseInt(request.getParameter("mid"));
+		
+		lb.setMid(mid);
+		
+		this.send(response, lbiz.delete(lb));
+		
+		
+		
+	}
+
+
 	/**
 	 * 添加我喜欢音乐
 	 * @param request
@@ -46,6 +70,9 @@ public class LoveServlet extends BaseServlet {
 
 		int mid = Integer.parseInt(request.getParameter("mid"));
 		int uid = Integer.parseInt(request.getParameter("uid"));
+		
+		
+		
 		
 		LoveBean lb =new LoveBean();
 		

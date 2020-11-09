@@ -17,9 +17,20 @@ public class UserDAO implements BaseDAO<UserBean>{
 	@Override
 	public int add(UserBean t) {
 		
-		String sql ="insert into user values(0,?,?,?,0)";
-		// TODO Auto-generated method stub
-		return db.update(sql, t.getUname(),t.getUpwd(),t.getUphoto());
+		String sql1 = "select * from user where uname=?";   // 判断该用户名是否被注册
+		List<Object> params = new ArrayList<Object>();
+		
+		params.add(t.getUname());
+		
+		List<UserBean> list = db.findMutiple(sql1, params, UserBean.class);
+		
+		if(list.size() == 0) {
+			String sql ="insert into user values(0,?,?,?,0)";
+			// TODO Auto-generated method stub
+			return db.update(sql, t.getUname(),t.getUpwd(),t.getUphoto());
+		}
+		
+		return 0;
 	}
 
 	@Override
@@ -38,8 +49,6 @@ public class UserDAO implements BaseDAO<UserBean>{
 	public UserBean login(String uname,String upwd) {
 		
 		
-		//做sql拼接
-		StringBuffer sb=new StringBuffer();
 		String sql="select * from user where uname=? and upwd=?";
 		List<Object> params= new ArrayList<Object>();
 		

@@ -29,40 +29,7 @@
 		<div class="body1">
 			<table class="table" id="findmusic">
               
-			  <!-- 
-			  
-			   <tr class="backgrounds"  onmousemove="show2(1)" onmouseout="show3(1)">
-				<td align="center"><span class="glyphicon glyphicon-heart"></span></td>
-				<td><img src="img/pic_5.jpg"></td>
-				<td>
-					<span>徐良、小凌 - 坏女孩</span>
-					<span class="play"><span class="glyphicon glyphicon-play" onclick="play3(1)"></span></span>
-	                <span class="save"><a><span class="glyphicon glyphicon-save" onclick="download(1)"></span></a></span>
-				</td>
-				<td>周杰伦</td>
-			  </tr>
-			  <tr class="backgrounds"  onmousemove="show2(2)" onmouseout="show3(2)">
-				<td align="center"><span class="glyphicon glyphicon-heart"></span></td>
-				<td><img src="img/pic_1.jpg"></td>
-				<td>
-					<span>周杰伦 - Mojito</span>
-					<span class="play"><span class="glyphicon glyphicon-play" onclick="play3(2)"></span></span>
-	                <span class="save"><span class="glyphicon glyphicon-save"></span></span>
-				</td>
-				<td>周杰伦</td>
-			  </tr>
-			   <tr class="backgrounds"  onmousemove="show2(3)" onmouseout="show3(3)">
-				<td align="center"><span class="glyphicon glyphicon-heart"></span></td>
-				<td><img src="img/pic_3.jpg"></td>
-				<td>
-					<span>丸子呦 - 广寒宫</span>
-					<span class="play"><span class="glyphicon glyphicon-play" onclick="play3(3)"></span></span>
-	                <span class="save"><span class="glyphicon glyphicon-save"></span></span>
-				</td>
-				<td>周杰伦</td>
-			  </tr>
-			  
-			   -->
+		
 			 
             </table>
 		</div>
@@ -95,7 +62,7 @@
 	   			         '<td class="ph"><img src="'+ item.mphoto +'"></td>'+
 	   			         '<td><span class="mn">'+ item.musicname +'</span>'+
 	   			         '<span class="play"><span class="glyphicon glyphicon-play" onclick="play3('+ index +')"></span></span>'+
-	   			         '<span class="save"><a><span class="glyphicon glyphicon-trash" onclick="download('+ index +')"></span></a></span>'+
+	   			         '<span class="save"><a><span class="glyphicon glyphicon-trash" onclick="del('+ item.mid +')"></span></a></span>'+
 	   			         '</td><td>'+ item.musicer +'</td></tr>'; 
 	   		  })
 	   		  $("#findmusic").html("").append($(str));
@@ -104,6 +71,24 @@
 	    	
 	    	
 	    }
+	    
+	    
+	    // 移除我喜欢
+	    function del(mid){
+	    	
+	    	$.post("LoveServlet",{op:"del",mid:mid}, data =>{
+	    		
+	    		if(data > 0){
+	    			alert("移除成功！");
+	    			location.href = "love.html";
+	    		}else{
+	    			alert("移除失败！");
+	    		}
+	    		
+	    	},'text');
+	    	
+	    }
+	    
 		
 		function show2(id){
 			$(".play").eq(id).css("display","inline-block");
