@@ -1,4 +1,4 @@
-			ul li{
+	ul li{
 				list-style-type: none;
 			}
 			a{
@@ -145,14 +145,14 @@
 		}
 		.f_l ul{
 			float: left;
-			width: 180px;
-			height: 70px;
+			width: 300px;
+			height: 50px;
 			margin-left:50px;
 		}
 		.f_l ul li{
 			float: left;
 			width: 30px;
-			height: 70px;
+			height: 50px;
 			font-size: 30px;
 			margin-left: 10px;
 		}

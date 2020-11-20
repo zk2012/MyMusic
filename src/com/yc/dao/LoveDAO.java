@@ -25,7 +25,7 @@ public class LoveDAO implements BaseDAO<LoveBean>{
 		List<LoveBean> list = db.findMutiple(sql1, params, LoveBean.class);
 		
 		if(list.size() == 0) {      //说明该歌曲没有被添加
-			System.out.println("aaaa");
+		//	System.out.println("aaaa");
 			String sql="insert into love values(0,?,?)";	
 			return db.update(sql, t.getUid(),t.getMid());
 		}
