@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.yc.bean.MusicBean;
+import com.yc.bean.UserBean;
 import com.yc.comms.DBHepler;
 import com.yc.bean.MusicBean;
 import com.yc.util.StringUtil;
@@ -75,6 +76,8 @@ public class MusicDAO implements BaseDAO<MusicBean>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 	
 }

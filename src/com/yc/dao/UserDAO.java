@@ -3,6 +3,7 @@ package com.yc.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.yc.bean.MessageBean;
 import com.yc.bean.UserBean;
 import com.yc.comms.DBHepler;
 import com.yc.util.StringUtil;

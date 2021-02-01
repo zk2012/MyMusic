@@ -50,7 +50,8 @@
 	</body>
 	<script type="text/javascript" src="js/jquery-3.5.1.min.js" ></script>
 	<script type="text/javascript" src="js/musicPlay.js" ></script>
-	<script type="text/javascript" src="js/chack2.js" ></script> 
+	<script type="text/javascript" src="js/chack2.js" ></script>
+	<script type="text/javascript" src="js/chackMusic.js" ></script> 
 	<script type="text/javascript" src="js/texiao.js" ></script>  <!-- texiao.js可以不用管 -->
 	
 	<script>
@@ -100,6 +101,9 @@
     	}
 	</script>
 	<script>
+	
+
+	
 	  //首次访问需要显示的数据
 	  $(function (){
 		  
@@ -107,9 +111,9 @@
 			  
 			  showMusic(data);
 			  MusicName(data);
-			 
-		  },"json")
-		 
+			  
+		  },"json");
+		
 	  })
 	     
 	function showMusic(obj){
@@ -122,8 +126,12 @@
 			         '<span id="mn">'+ item.musicname +'</span>'+
 			         '<span class="listen">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-headphones" onclick="play2('+ item.mid +')"></span></span>'+
 			         '<span class="like">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart" onclick="addlike('+ item.mid +',0)"></span></span></li>'; 
+		  	
+			         mid[index]=item.mid;
 		  })
 		  $("#musicname").html("").append($(str));
+		  
+		  
 	  }
 	
 	</script>

@@ -3,6 +3,7 @@ package com.yc.bean;
 /**
  *  一个用户可以有多个我喜欢的音乐
  *  一个音乐也可以被多个用户所喜欢
+ *  n:n
  * @author Administrator
  *
  */

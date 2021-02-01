@@ -2,6 +2,9 @@ package com.yc.dao;
 
 import java.util.List;
 
+import com.yc.bean.MessageBean;
+import com.yc.bean.UserBean;
+
 
 /**
  * 数据库基本操作接口
@@ -36,6 +39,8 @@ public interface BaseDAO<T> {
 	* @return
 	*/
 	public int delete (T t);
+
+
 
 	
 	

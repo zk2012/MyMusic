@@ -6,7 +6,9 @@
 	var num=0;   //音乐索引
     var str = 0;  //一个判断播放的缩影      0 没有单机其他页面的歌曲  /  1  单机了其他页面的歌曲
     var sumtime;                 //获取总时长
-    
+	var mid=[];
+    let nowId;
+
     //默认切换的歌单
     $(function (){
 		  
@@ -47,14 +49,19 @@
     
      //finds页面的播放/暂停   点击事件
 	function play2(id){ 
+		nowId = id;
 		var mn = $("#musicname li span").eq(1+6*(id-1)).text();
 		var mp = $("#musicname li span img").eq(id-1).attr("src");
 	//	alert(mp);
+		
 		parent.window.play1(1,mn,mp);
+		$("#mid").text(id);
+		alert(id);
 	}
 
     //love页面的播放/暂停   点击事件
 	function play3(id){ 
+		nowId = id;
 		var mn = $(".mn").eq(id).text();
 		var mp = $(".ph img").eq(id).attr("src");
 	//	alert(mp);

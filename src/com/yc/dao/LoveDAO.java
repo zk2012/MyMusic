@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.yc.bean.LoveBean;
 import com.yc.bean.MusicBean;
+import com.yc.bean.UserBean;
 import com.yc.comms.DBHepler;
 import com.yc.util.StringUtil;
 
@@ -55,6 +56,8 @@ public class LoveDAO implements BaseDAO<LoveBean>{
 		
 		return db.update(sql, t.getMid());
 	}
+
+	
 	
 	
 
